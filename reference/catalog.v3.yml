@@ -6,7 +6,7 @@ info:
     Manage products, brands and categories. To learn more about catalog resources see [Catalog Overview](https://developer.bigcommerce.com/api-docs/catalog/products-overview).
 
     - [Authentication](#authentication)
-    - [Differentiating Variants & Modifiers](#variants-and-modifiers)
+    - [Differentiating Variants and Modifiers](#differentiating-variants-and-modifiers)
     - [Available Endpoints](#available-endpoints)
     - [Resources](#resources)
 
@@ -135,12 +135,6 @@ paths:
         - name: name
           description: |
             Filter items by name.
-          required: false
-          in: query
-          type: string
-        - name: sku
-          description: |
-            Filter items by sku.
           required: false
           in: query
           type: string
@@ -19338,7 +19332,7 @@ definitions:
             maxLength: 255
           image_url:
             type: string
-            description: Publicly available image url 
+            description: Publicly available image url
       - properties:
           product_id:
             type: integer
@@ -20538,7 +20532,7 @@ definitions:
           id:
             type: integer
             description: |-
-              The unique numeric ID of the custom field; increments sequentially.
+              The unique numeric ID of the custom field; increments sequentially. Required to update existing custom field in /PUT request.
               Read-Only
             minimum: 1
             example: 6
@@ -21484,6 +21478,9 @@ definitions:
           If entered, the sale price will be used instead of value in the price field when calculating the product's cost.
         format: float
         minimum: 0
+      map_price:
+        type: number
+        description: Minimum Advertised Price
       tax_class_id:
         type: integer
         description: |

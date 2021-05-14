@@ -7,8 +7,8 @@ info:
 
     - [Authentication](#authentication)
     - [Channels](#channels)
-    - [Channel Listings](#channel-listings)
-    - [Channel Site](#channel-site)
+    - [Channel listings](#channel-listings)
+    - [Channel site](#channel-site)
     - [Resources](#resources)
 
     ## Authentication
@@ -30,9 +30,9 @@ info:
     | Channel Settings                             | modify     | `store_channel_settings`                      |
     | Channel Settings                             | read-only  | `store_channel_settings_read_only`            |
 
-    ## [Channels](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels)
+    ## Channels
 
-    A channel is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
+    A [channel](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channels) is anywhere a merchant sells their products. This encompasses headless storefronts, marketplaces, POS systems, and marketing platforms.
 
     ### Platform
 
@@ -61,28 +61,29 @@ info:
 
     |Type|Platform|Allowed Statuses|
     |--|--|--|
-    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`|
-    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`
-    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`|
+    |`storefront`|`bigcommerce`|`prelaunch`, `active`, `inactive`, `deleted`|
+    |`storefront`|**Is not** `bigcommerce` |`active`, `inactive`, `disconnected`, `deleted`
+    |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `deleted`|
 
     <div class="HubBlock--callout">
     <div class="CalloutBlock--warning">
     <div class="HubBlock-content">
 
     > ### Note
-    > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` will be deprecated.
+    > * The `terminated` status is readonly. `terminated` channels can not be restored.
+    > * As of April 2020, `status`  should be used in place of `is_enabled` -- `is_enabled` is deprecated.
 
     </div>
     </div>
     </div>
 
-    ## [Channel Listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings)
+    ## Channel listings
 
-    Channel listings allow you to manage catalog differences among different storefronts or marketplaces.
+    [Channel listings](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-listings) allow you to manage catalog differences among different storefronts or marketplaces.
 
-    ## [Channel Site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site)
+    ## Channel site
 
-    A site refers to the domain associated with a channel.
+    A [Channel site](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api/channel-site) refers to the domain associated with a channel.
 
     ## Resources
 
@@ -120,14 +121,9 @@ paths:
             type: string
         - in: query
           name: available
-          description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`.'
+          description: 'Filter items based on whether the channel is currently available for integration. Setting this query to `true` will return channels with the status of `prelaunch`, `active` , `inactive`, or `connected`. Setting this query to `false` will return channels with the status of `disconnected`, `deleted`, and `terminated`.'
           schema:
             type: boolean
-        - in: query
-          name: name
-          description: Filter items by name.
-          schema:
-            type: string
         - in: query
           name: status
           description: Filter items by status.
@@ -139,6 +135,8 @@ paths:
               - inactive
               - connected
               - disconnected
+              - deleted
+              - terminated
         - in: query
           name: type
           description: Filter items by type.
@@ -1774,7 +1772,7 @@ components:
           properties:
             id:
               type: integer
-              description: 'The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. [Learn how to find an App''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id).'
+              description: "The unique `id` given to an app registered in [DevTools](https://devtools.bigcommerce.com/); used to create links to the app in channel manager. `app.id` is optional; however, if you're building an app that creates or manages a channel, we recommend including it to ensure the user interface in the control panel works properly. Select partners who are promoted in the Channel Manager must build an app, and include the app ID in the create channel request. [Learn how to find an App''s ID](https://developer.bigcommerce.com/api-docs/apps/tutorials/id)."
             sections:
               type: array
               description: 'if set, when the app is loaded within the control panel, the navigation `sections` will be directly embedded in the control panel navigation.'
@@ -1817,7 +1815,9 @@ components:
         - inactive
         - connected
         - disconnected
-      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status).'
+        - deleted
+        - terminated
+      description: 'The status of the channel; channel `platform` and `status` must be a [valid combination](https://developer.bigcommerce.com/api-reference/cart-checkout/channels-listings-api#status). `terminated` is not valid for `PUT` or `POST` requests. `deleted` is not valid for `POST` requests. '
     channelType:
       type: string
       enum:

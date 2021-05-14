@@ -792,6 +792,7 @@ paths:
 
         > ### Note
         > * The `email` property is only required if the customer is a guest shopper. Otherwise, it is set automatically.
+        > * Sending `email` property as a payload in POST request triggers the abandoned cart notification process.
         > * The Send a Test Request feature is not currently supported for this endpoint.
 
         </div>
@@ -821,8 +822,8 @@ paths:
               address1: 123 Main Street
               address2: Apt 1
               city: Austin
-              stateOrProvinceCode: Austin
-              countryCode: USA
+              stateOrProvinceCode: TX
+              countryCode: US
               postalCode: '12345'
       responses:
         '200':
@@ -992,8 +993,8 @@ paths:
               address1: 123 Main Street
               address2: Apt 1
               city: Austin
-              stateOrProvinceCode: Austin
-              countryCode: USA
+              stateOrProvinceCode: TX
+              countryCode: US
               postalCode: '12345'
       responses:
         '200':
@@ -1249,8 +1250,8 @@ paths:
                   address1: 123 Main Street
                   address2: Apt 1
                   city: Austin
-                  stateOrProvinceCode: Austin
-                  countryCode: USA
+                  stateOrProvinceCode: TX
+                  countryCode: US
                   postalCode: '12345'
                   customFields:
                     - {}
@@ -1265,8 +1266,8 @@ paths:
                   address1: 123 South Street
                   address2: Apt 5
                   city: Austin
-                  stateOrProvinceCode: Austin
-                  countryCode: USA
+                  stateOrProvinceCode: TX
+                  countryCode: US
                   postalCode: '12345'
                   customFields:
                     - {}
@@ -1853,6 +1854,11 @@ paths:
               createdTime: '2019-01-10T17:18:00+00:00'
               updatedTime: '2019-01-10T17:19:47+00:00'
               customerMessage: ''
+        '404':
+          description: Gift certificate code not found
+          schema:
+            type: object
+            properties: {}
   '/checkouts/{checkoutId}/gift-certificates/{giftCertificateCode}':
     delete:
       description: |-
