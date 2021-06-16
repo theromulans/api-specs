@@ -190,6 +190,10 @@ paths:
   /orders/count:
     get:
       description: Gets an array of orders in the store organized by order status.
+      
+        **Notes**
+
+        Ordered by `sort_order` in ascending order.
       summary: Get a Count of Orders
       tags:
         - Orders
@@ -1059,9 +1063,57 @@ components:
           - customer_id
           - date_created
           - date_modified
+          - date_shipped
           - status_id
-          - channel_id
-          - external_id
+          - subtotal_ex_tax
+          - subtotal_inc_tax
+          - subtotal_tax
+          - base_shipping_cost
+          - shipping_cost_ex_tax
+          - shipping_cost_inc_tax
+          - shipping_cost_tax
+          - shipping_cost_tax_class_id
+          - base_handling_cost
+          - handling_cost_ex_tax
+          - handling_cost_inc_tax
+          - handling_cost_tax
+          - handling_cost_tax_class_id
+          - base_wrapping_cost
+          - wrapping_cost_ex_tax
+          - wrapping_cost_inc_tax
+          - wrapping_cost_tax
+          - wrapping_cost_tax_class_id
+          - total_ex_tax
+          - total_inc_tax
+          - total_tax
+          - items_total
+          - items_shipped
+          - payment_method
+          - payment_provider_id
+          - payment_status
+          - captured
+          - refunded_amount
+          - order_is_digital
+          - store_credit_amount
+          - gift_certificate_amount
+          - ip_address
+          - geoip_country
+          - countryName
+          - geoip_country_iso2
+          - countryCode
+          - currency_id
+          - currency_code
+          - currency_exchange_rate
+          - default_currency_id
+          - default_currency_code
+          - staff_notes
+          - customer_message
+          - discount_amount
+          - coupon_discount
+          - shipping_address_count
+          - is_deleted
+          - ebay_order_id
+          - cart_id
     Accept:
       name: Accept
       in: header
