@@ -217,40 +217,79 @@ paths:
             - 0
         - name: is_free_shipping
           description: |
-            Filter items by is_free_shipping.
+            Filter items by is_free_shipping. `0` for true, `1` for false.
           required: false
           in: query
           type: integer
+          enum:
+            - 1
+            - 0
         - name: inventory_level
           description: |
-            Filter items by inventory_level.
+            Filter items by inventory_level. `0` for true, `1` for false.
           required: false
           in: query
           type: integer
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:in'
+          description: |
+            Filter items by inventory_level:in. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:in'
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:not_in'
+          description: |
+            Filter items by inventory_level:not_in. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:not_in'
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:min'
+          description: |
+            Filter items by inventory_level:min. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:min'
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:max'
+          description: |
+            Filter items by inventory_level:max. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:max'
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:greater'
+          description: |
+            Filter items by inventory_level:greater. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:greater'
-        - type: integer
+          enum:
+            - 1
+            - 0
+        - name: 'inventory_level:less'
+          description: |
+            Filter items by inventory_level:less. `0` for true, `1` for false.
+          type: integer
           in: query
-          name: 'inventory_level:less'
+          enum:
+            - 1
+            - 0
         - name: inventory_low
           description: |
-            Filter items by inventory_low. Values: 1, 0.
+            Filter items by inventory_low. `0` for true, `1` for false.
           required: false
           in: query
           type: integer
+          enum:
+            - 1
+            - 0
         - name: out_of_stock
           description: |
             Filter items by out_of_stock. To enable the filter, pass `out_of_stock`=`1`.
@@ -367,13 +406,13 @@ paths:
             - inventory_level
             - is_visible
             - total_sold
-        - type: integer
+        - name: 'categories:in'
+          type: integer
           in: query
           description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
-          name: 'categories:in'
-        - type: string
+        - name: sku  
+          type: string
           in: query
-          name: sku
           description: Filter items by sku.
       responses:
         '200':
