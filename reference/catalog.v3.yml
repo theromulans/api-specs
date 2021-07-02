@@ -215,8 +215,7 @@ paths:
             - 1
             - 0
         - name: is_free_shipping
-          description: |
-            Filter items by is_free_shipping. `0` for true, `1` for false.
+          description: 'Filter items by is_free_shipping. `0` for false, `1` for true.'
           required: false
           in: query
           type: integer
@@ -224,8 +223,7 @@ paths:
             - 1
             - 0
         - name: inventory_level
-          description: |
-            Filter items by inventory_level. `0` for true, `1` for false.
+          description: Filter items by inventory_level.
           required: false
           in: query
           type: integer
@@ -233,56 +231,49 @@ paths:
             - 1
             - 0
         - name: 'inventory_level:in'
-          description: |
-            Filter items by inventory_level:in. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:in. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: 'inventory_level:not_in'
-          description: |
-            Filter items by inventory_level:not_in. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:not_in. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: 'inventory_level:min'
-          description: |
-            Filter items by inventory_level:min. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:min. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: 'inventory_level:max'
-          description: |
-            Filter items by inventory_level:max. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:max. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: 'inventory_level:greater'
-          description: |
-            Filter items by inventory_level:greater. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:greater. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: 'inventory_level:less'
-          description: |
-            Filter items by inventory_level:less. `0` for true, `1` for false.
+          description: 'Filter items by inventory_level:less. '
           type: integer
           in: query
           enum:
             - 1
             - 0
         - name: inventory_low
-          description: |
-            Filter items by inventory_low. `0` for true, `1` for false.
+          description: 'Filter items by inventory_low. '
           required: false
           in: query
           type: integer
