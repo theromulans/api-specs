@@ -207,8 +207,7 @@ paths:
           in: query
           type: boolean
         - name: is_featured
-          description: |
-            Filter items by is_featured. `0` for true, `1` for false.
+          description: 'Filter items by is_featured. `0` for false, `1` for true.'
           required: false
           in: query
           type: integer
@@ -410,7 +409,7 @@ paths:
           type: integer
           in: query
           description: 'Filter items by categories. Use for products in multiple categories. For example, `categories:in=12`.'
-        - name: sku  
+        - name: sku
           type: string
           in: query
           description: Filter items by sku.
@@ -21664,7 +21663,7 @@ definitions:
         format: float
         minimum: 0
       is_free_shipping:
-        type: boolean
+        type: integer
         description: |
           Flag used to indicate whether the product has free shipping. If `true`, the shipping cost for the product will be zero.
       is_visible:
@@ -21672,7 +21671,7 @@ definitions:
         description: |
           Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the product will be displayed. If `false`, the product will be hidden from view.
       is_featured:
-        type: boolean
+        type: integer
         description: |
           Flag to determine whether the product should be included in the `featured products` panel when viewing the store.
       related_products:
