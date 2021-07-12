@@ -343,4 +343,4 @@ properties:
             type: string
           email_address:
             type: string
-
+title: Order Email

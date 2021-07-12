@@ -77,4 +77,4 @@ properties:
             type: string
           go_shopping:
             type: string
-
+title: Account Created
