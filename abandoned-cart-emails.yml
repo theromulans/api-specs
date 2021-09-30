@@ -337,6 +337,10 @@ components:
               - locale: en
               - keys:
                   hello_phrase: Welcome back
+        Enable email:
+          is_active: true
+        Disable email:
+          is_active: false
       properties:
         is_active:
           type: boolean
@@ -372,7 +376,8 @@ components:
       x-examples:
         example-1:
           locale: en
-          keys: null
+          keys: 
+            hello_phrase: Welcome back
       properties:
         locale:
           type: string
@@ -380,11 +385,9 @@ components:
           description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
         keys:
           type: string
-          example: 'null'
+          phrase_id: phrase_translation
           description: |-
             Language keys for the template. User-defined. Should match any lang keys used in the template.
-
-            hello_phrase: 'Welcome back"
         additionalProperties:
           nullable: true
       required:
