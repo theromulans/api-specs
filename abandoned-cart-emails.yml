@@ -62,13 +62,14 @@ paths:
           description: OK
           content:
             application/json:
-              schema:
+               schema:
                 type: object
                 properties:
                   data:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
                     type: object
+                
         '422':
           description: Unprocessable Entity
           content:
@@ -151,6 +152,12 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: 'Welcome back,'
+              Enable email:
+                value: 
+                  is_active: true
+              Disable email:
+                value:
+                  is_active: false
               Update coupon code and notification time:
                 value:
                   coupon_code: FF11-22X4
@@ -214,14 +221,6 @@ paths:
                   - subject
                   - body
                   - translations
-                x-examples:
-                  example-1:
-                    subject: 'Complete your purchase at {{ store.name }}'
-                    body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
-                    translations:
-                      - locale: en
-                        keys:
-                          hello_phrase: 'Welcome back,'
               examples:
                 example-1:
                   value:
@@ -231,14 +230,6 @@ paths:
                       - locale: en
                         keys:
                           hello_phrase: Welcome back
-                example:
-                  value:
-                    subject: 'Complete your purchase at {{ store.name }}'
-                    body: '{{lang ''hello_phrase''}} Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
-                    translations:
-                      - locale: en
-                        keys:
-                          hello_phrase: Welcom
       operationId: get-marketing-abandoned-cart-emails-default
       description: Return default Abandoned Cart email template
   /marketing/abandoned-cart-emails/settings:
@@ -315,9 +306,6 @@ components:
     AbandonedCartSettings:
       title: AbandonedCartSettings
       type: object
-      x-examples:
-        Inherit global channel items:
-          use_global: true
       properties:
         use_global:
           type: boolean
@@ -326,21 +314,6 @@ components:
         - use_global
     AbandondedCartEmailPayload:
       type: object
-      x-examples:
-        Update data:
-          coupon_code: FF11-22X4
-          notify_at_minutes: 60
-          template:
-            subject: 'Complete your purchase at {{ store.name }}'
-            body: 'Complete your purchase <a href="{{ notification.checkout_link }}">{{notification.checkout.link}}'
-            translations:
-              - locale: en
-              - keys:
-                  hello_phrase: Welcome back
-        Enable email:
-          is_active: true
-        Disable email:
-          is_active: false
       properties:
         is_active:
           type: boolean
@@ -373,11 +346,6 @@ components:
     TranslationDefinition:
       title: TranslationDefinition
       type: object
-      x-examples:
-        example-1:
-          locale: en
-          keys: 
-            hello_phrase: Welcome back
       properties:
         locale:
           type: string
@@ -385,7 +353,6 @@ components:
           description: 'Locale code for this language, such as ''en'', ''en-us'', ''fr-ca''.'
         keys:
           type: string
-          phrase_id: phrase_translation
           description: |-
             Language keys for the template. User-defined. Should match any lang keys used in the template.
         additionalProperties:
@@ -400,38 +367,38 @@ components:
       example: 60
       enum:
         - 60
-        - ' 120'
-        - ' 180'
-        - ' 240'
-        - ' 300'
-        - ' 360'
-        - ' 420'
-        - ' 480'
-        - ' 540'
-        - ' 600'
-        - ' 660'
-        - ' 720'
-        - ' 780'
-        - ' 840'
-        - ' 900'
-        - ' 960'
-        - ' 1020'
-        - ' 1080'
-        - ' 1140'
-        - ' 1200'
-        - ' 1260'
-        - ' 1320'
-        - ' 1380'
-        - ' 1440'
-        - ' 2880'
-        - ' 4320'
-        - ' 5760'
-        - ' 7200'
-        - ' 8640'
-        - ' 10080'
-        - ' 11520'
-        - ' 12960'
-        - ' 14400'
+        - 120
+        - 180
+        - 240
+        - 300
+        - 360
+        - 420
+        - 480
+        - 540
+        - 600
+        - 660
+        - 720
+        - 780
+        - 840
+        - 900
+        - 960
+        - 1020
+        - 1080
+        - 1140
+        - 1200
+        - 1260
+        - 1320
+        - 1380
+        - 1440
+        - 2880
+        - 4320
+        - 5760
+        - 7200
+        - 8640
+        - 10080
+        - 11520
+        - 12960
+        - 14400
       x-examples:
         example-1: 60
         type: integer
