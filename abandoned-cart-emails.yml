@@ -396,7 +396,7 @@ components:
       description: 'Describes when this email will be sent, in minutes. Only supports certain intervals described in the enum.'
       example: 60
       enum:
-        - ' 60'
+        - 60
         - ' 120'
         - ' 180'
         - ' 240'
