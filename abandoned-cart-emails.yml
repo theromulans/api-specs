@@ -205,6 +205,7 @@ paths:
                     items:
                       required:
                         - locale
+                        - keys
                       properties:
                         locale:
                           type: string
@@ -215,8 +216,6 @@ paths:
                             hello_phrase:
                               type: string
                               minLength: 1
-                          required:
-                            - hello_phrase
                 required:
                   - subject
                   - body
