@@ -269,8 +269,6 @@ components:
   schemas:
     SaveError:
       type: object
-      additionalProperties:
-        type: string
       title: SaveError
       description: ''
       properties:
