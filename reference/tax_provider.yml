@@ -820,7 +820,7 @@ components:
           description: The ID of the tax class defined in the merchants BigCommerce store. May have a UUID value.
         name:
           type: string
-          description: The human readable name of this tax class in the merchants BigCommerce store.
+          description: The human-readable name of this tax class in the merchants BigCommerce store.
       required:
         - code
         - class_id
@@ -924,7 +924,7 @@ components:
       properties:
         name:
           type: string
-          description: The human readable name of this tax. Used for reporting or if enabled under certain store configurations a break down of taxes during checkout.
+          description: The human-readable name of this tax. Used for reporting or if enabled under certain store configurations a break down of taxes during checkout.
         rate:
           type: number
           format: double
