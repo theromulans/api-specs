@@ -924,7 +924,7 @@ components:
       properties:
         name:
           type: string
-          description: The human-readable name of this tax. Used for reporting. May also be visibile within the break down of taxes during checkout, invoices and within the control panel (depending on store configuration). May not be empty.
+          description: The human-readable name of this tax. Used for reporting. Depending on store configuration, may also be visible in the itemization of taxes at checkout, on invoices, and in control panel views. May not be empty.
         rate:
           type: number
           format: double
