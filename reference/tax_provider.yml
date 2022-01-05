@@ -256,7 +256,7 @@ paths:
   /void:
     post:
       summary: Void Tax Quote
-      description: Invalidate the persisted tax quote as identified by the given unique ID. Relevant to order cancellations or when moving an order from a paid status to unpaid status.
+      description: Invalidate the persisted tax quote as identified by the given unique ID. Relevant to order cancellations or when moving an order from a paid status to an unpaid status.
       operationId: void
       parameters:
         - name: id
